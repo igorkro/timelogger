@@ -1,0 +1,3 @@
+[submodule "credentialmanagement"]
+	path = credentialmanagement
+	url = https://github.com/ilyalozovyy/credentialmanagement
