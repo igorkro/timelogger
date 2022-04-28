@@ -3,9 +3,6 @@ Copyright © 2022 Igor Krushch
 
 The utility to simplify a JIRA time logging.
 
-Please email bug reports and feature requests to mailto:dev@krushch.com
-
-
 ## Configuration
 There are a few things we need to configure before we can use it.
 
