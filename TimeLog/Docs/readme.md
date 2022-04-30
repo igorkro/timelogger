@@ -38,11 +38,11 @@ NOTE. On startup when you open the logger for the first time, the command text b
 
 Then you do some work, check emails etc. When you are switching between activities (lets say finished checking emails and switching to the task), you again press your Command Shortcut and input `emails` and press Enter. What this will do is it will log this time into the Misc ticket, and the time taken will be difference between your last logged time and current moment. 
 
-Then, say, you have worked on a ticket for a little while. Lets say the ticket is `ECI-212`. You again press Ctrl+Alt+Space, input `ECI-212` and press Space. The logger will fetch the name of the ticket and display it underneath the text box. This is just a visual help to make sure you log under the right ticket. After that space input a short description of what you have done (lets say, coding). And press Enter. This will log another entry.
+Then, say, you have worked on a ticket for a little while. Lets say the ticket is `TEST-212`. You again press Ctrl+Alt+Space, input `TEST-212` and press Space. The logger will fetch the name of the ticket and display it underneath the text box. This is just a visual help to make sure you log under the right ticket. After that space input a short description of what you have done (lets say, coding). And press Enter. This will log another entry.
 
 Lets say you then went for a lunch. You just go, have a lunch, and then when you come back you again Ctrl+Alt+Space and input dash. That will make sure that it skips the time you have been absent.
 
-Then you again worked on `ECI-212` for a few moments. You press again Ctrl+Alt+Space. You can now either input `ECI-212` again and press Space, or you can press Down arrow. This will display the list of tickets you have logged for since the app start. You can select the `ECI-212` there and press Enter. It will put the ticket in to the text field. You then again input some details and press Enter. If there is no ticket that you need in that drop down list, press Escape to close it and input the ticket manually.
+Then you again worked on `TEST-212` for a few moments. You press again Ctrl+Alt+Space. You can now either input `TEST-212` again and press Space, or you can press Down arrow. This will display the list of tickets you have logged for since the app start. You can select the `TEST-212` there and press Enter. It will put the ticket in to the text field. You then again input some details and press Enter. If there is no ticket that you need in that drop down list, press Escape to close it and input the ticket manually.
 
 Alternative to using that "dash" log to move the last logged time pointer, you can right click on the Logger icon in the tray area and press "Notify".
 

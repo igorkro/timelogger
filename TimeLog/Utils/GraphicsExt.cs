@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// This code section was taken from
+// https://github.com/koszeggy/KGySoft.Drawing, which is under the KGy SOFT License.
+// Original source code: https://github.com/koszeggy/KGySoft.Drawing/blob/master/KGySoft.Drawing/Drawing/_Extensions/GraphicsExtensions.cs
+// The KGy SOFT License is available at https://github.com/koszeggy/KGySoft.Drawing/blob/master/LICENSE
+
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TimeLog.Utils
 {

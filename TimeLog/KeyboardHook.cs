@@ -1,4 +1,6 @@
-﻿using System;
+﻿// This code was taken from here: https://stackoverflow.com/a/27309185
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;

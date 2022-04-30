@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// https://www.codeproject.com/Articles/25510/Restore-Form-Position-and-Size-in-C
+// 
+// This file is licensed under The Code Project Open License (CPOL)
+// https://www.codeproject.com/info/cpol10.aspx
+
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TimeLog.Utils
