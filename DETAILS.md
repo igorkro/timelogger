@@ -1,4 +1,4 @@
-﻿## Configuration
+## Configuration
 There are a few things we need to configure before we can use it.
 
 ![Setting](/assets/settings.png)
@@ -22,6 +22,7 @@ Go to the logger configuration, select "Access Token" , paste the value copied f
 The application should start up automatically on signing in if you have selected it to run automatically on startup.
 
 The first thing when you start working is log the start time. To do that press Ctrl+Alt+Space (or whatever Command Shortcut you have assigned).
+
 ![Logger](/assets/logger.png)
 
 The logging screen is very simple - it contains the text box for providing logging instructions, and the Last Reported that shows when the last time you have logged something for the day.
