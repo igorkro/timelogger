@@ -1,6 +1,8 @@
 ﻿## Configuration
 There are a few things we need to configure before we can use it.
 
+![Setting](/assets/settings.png)
+
 - **Authentication**. Pick the one based on what mode allowed by JIRA instance. Access Token is a preferred one though, as it is a bit more secure.
 - **Misc ticket**. We will inevitably work on some things that are not ticketed up (helping QA, debugging some prod issue, have a meeting etc.). For those things we have a dedicated ticket, misc ticket. It will be assigned to you, will be there the whole time in the Proposed state, no code is going to be committed in there - it is strictly to log some unticketed work. If you don't have that one already, please create one, and put the ticket key into this field.
 - **Jira URL**. This is the URL that JIRA resides on (for example, https://jira.testdomain.com/)
@@ -20,6 +22,7 @@ Go to the logger configuration, select "Access Token" , paste the value copied f
 The application should start up automatically on signing in if you have selected it to run automatically on startup.
 
 The first thing when you start working is log the start time. To do that press Ctrl+Alt+Space (or whatever Command Shortcut you have assigned).
+![Logger](/assets/logger.png)
 
 The logging screen is very simple - it contains the text box for providing logging instructions, and the Last Reported that shows when the last time you have logged something for the day.
 
@@ -61,6 +64,8 @@ record the time with the offset from the left (i.e. from the time started).
 `!list`
 
 This command shows the time table. Alternatively you can right click on the Logger tray icon and select "Time table..." there.
+
+![Timetable](/assets/timetable.png)
 
 The window shows your logged entries for the day. 
 Red vertical line shows when you have logged the dash (i.e. the mark when to start logging from).
