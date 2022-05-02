@@ -15,6 +15,8 @@
 //
 // Email: dev@krushch.com
 
+using System;
+
 namespace TimeLog.Models.Events
 {
     class WorkLogFlushed: TLEvent
