@@ -1,6 +1,11 @@
 # Time Logger
 The utility to simplify a JIRA time logging.
 
+## Building
+- Clone the repository (make sure submodules are cloned as well)
+- Open the file `TimeLog.sln` in Visual Studio 2019 (or newer)
+- Build and run
+
 ## Configuration and workflow
 Please see [details here](DETAILS.md)
 
