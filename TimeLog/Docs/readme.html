@@ -1,0 +1,110 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>readme.md</title>
+    <style type="text/css">
+           
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+
+body {
+  font-family: "Roboto",Verdana,sans-serif;
+}
+
+        </style>
+  </head>
+  <body>
+    <h1 id="time-logger">Time Logger</h1>
+    <p>Copyright © 2022 Igor Krushch</p>
+    <p>The utility to simplify a JIRA time logging.</p>
+    <h2 id="configuration">Configuration</h2>
+    <p>There are a few things we need to configure before we can use it.</p>
+    <ul>
+      <li>
+        <strong>Authentication</strong>. Pick the one based on what mode allowed by JIRA instance. Access Token is a preferred one though, as it is a bit more secure.</li>
+      <li>
+        <strong>Misc ticket</strong>. We will inevitably work on some things that are not ticketed up (helping QA, debugging some prod issue, have a meeting etc.). For those things we have a dedicated ticket, misc ticket. It will be assigned to you, will be there the whole time in the Proposed state, no code is going to be committed in there - it is strictly to log some unticketed work. If you don't have that one already, please create one, and put the ticket key into this field.</li>
+      <li>
+        <strong>Jira URL</strong>. This is the URL that JIRA resides on (for example, <a href="https://jira.testdomain.com/">https://jira.testdomain.com/</a>)</li>
+      <li>
+        <strong>Command Shortcut</strong>. This is the global shortcut that will open the logging window.</li>
+      <li>
+        <strong>Show Total Logged on Command Screen</strong>. Turn this one on to display the total logged time for the day on the Command screen.</li>
+    </ul>
+    <p>Press Apply.</p>
+    <h3 id="access-token-setup">Access Token Setup</h3>
+    <p>If you decide to use the access token, you need to do the following.
+Open JIRA and press on your avatar in the right top corner. From the drop-down menu select "Profile".
+On the left hand side select "Personal Access Tokens" and press Create Token. Give it a name. A good practice to give the name that allows to identify the target app, thus call it "Timelogger". Untick "Automatic expiry" to make sure token never expires and press Create. You will be presented with the token value. Copy that value. Note that this is the only time you will be shown this token! So if you forgot it, you will have to recreate the token!</p>
+    <p>Go to the logger configuration, select "Access Token" , paste the value copied from JIRA and press Apply.</p>
+    <h2 id="the-workflow">The workflow</h2>
+    <p>The application should start up automatically on signing in if you have selected it to run automatically on startup.</p>
+    <p>The first thing when you start working is log the start time. To do that press Ctrl+Alt+Space (or whatever Command Shortcut you have assigned).</p>
+    <p>The logging screen is very simple - it contains the text box for providing logging instructions, and the Last Reported that shows when the last time you have logged something for the day.</p>
+    <p>If you open the logged and the Last Reported time is "<code>---</code>", that means you didn't log anything and didn't mark the day start. If you try to log when there are dashes, it will prompt you to specify when did you start working today so that it can calculate logged time properly. However, if you have opened the logger to report the start of the day, the dialog won't show up.</p>
+    <p>To do that input dash (<code>-</code>) in the logger window and press Enter. It will ask if you want to log this entry. Press Yes.</p>
+    <p>Dash is a special command that moves last logged time pointer (or the start of the work for that matter) to the current point in time.</p>
+    <p>NOTE. On startup when you open the logger for the first time, the command text box won't be focused. You need to explicitly click on it. After that opening the logger window will keep command text box focused, thus you will be able to input log entry right after the Command Shortcut press.</p>
+    <p>Then you do some work, check emails etc. When you are switching between activities (lets say finished checking emails and switching to the task), you again press your Command Shortcut and input <code>emails</code> and press Enter. What this will do is it will log this time into the Misc ticket, and the time taken will be difference between your last logged time and current moment.</p>
+    <p>Then, say, you have worked on a ticket for a little while. Lets say the ticket is <code>TEST-212</code>. You again press Ctrl+Alt+Space, input <code>TEST-212</code> and press Space. The logger will fetch the name of the ticket and display it underneath the text box. This is just a visual help to make sure you log under the right ticket. After that space input a short description of what you have done (lets say, coding). And press Enter. This will log another entry.</p>
+    <p>Lets say you then went for a lunch. You just go, have a lunch, and then when you come back you again Ctrl+Alt+Space and input dash. That will make sure that it skips the time you have been absent.</p>
+    <p>Then you again worked on <code>TEST-212</code> for a few moments. You press again Ctrl+Alt+Space. You can now either input <code>TEST-212</code> again and press Space, or you can press Down arrow. This will display the list of tickets you have logged for since the app start. You can select the <code>TEST-212</code> there and press Enter. It will put the ticket in to the text field. You then again input some details and press Enter. If there is no ticket that you need in that drop down list, press Escape to close it and input the ticket manually.</p>
+    <p>Alternative to using that "dash" log to move the last logged time pointer, you can right click on the Logger icon in the tray area and press "Notify".</p>
+    <h2 id="special-commands-supported-by-the-logger">Special commands supported by the logger</h2>
+    <h3 id="manual-time-logging">Manual time logging</h3>
+    <p>
+      <code>+hh:mm-hh:mm &lt;ticket-id&gt; &lt;details&gt;</code>
+    </p>
+    <p>where the first <code>hh:mm</code> denotes the work start time, and the second <code>hh:mm</code> denotes the work end time</p>
+    <h3 id="report-with-time-offset">Report with time offset</h3>
+    <p>
+      <code>&lt;ticket-id&gt; &lt;details&gt; | &lt;hh:mm&gt;</code>
+    </p>
+    <p>record the time with the offset from the left (i.e. from the time started).</p>
+    <p>
+      <code>hh:mm</code> as a positive value will "move" the start time to be prior to last reported time, hh:mm as a negative value (<code>-hh:mm</code>) will "move" the start time to be after the last reported time</p>
+    <h3 id="display-time-table">Display time table</h3>
+    <p>
+      <code>!list</code>
+    </p>
+    <p>This command shows the time table. Alternatively you can right click on the Logger tray icon and select "Time table..." there.</p>
+    <p>The window shows your logged entries for the day.
+Red vertical line shows when you have logged the dash (i.e. the mark when to start logging from).
+Blue vertical line shows the current time.</p>
+    <p>Pressing on the log entry will display you the details (the logged details and the time period).
+You can also press the ticket name on the right, it will open the ticket in the browser.</p>
+    <p>At the bottom you can see some basic stats:</p>
+    <ul>
+      <li>
+        <strong>Total reported</strong>. That is how much time has been logged (that is counting ticket work and misc)</li>
+      <li>
+        <strong>Last reported</strong>. This just shows when was the last time you have logged time for the day</li>
+    </ul>
+    <p>The time table only supports times from 6am till midnight. You are not supposed to work at night, hence the logger doesn't support that presently.</p>
+    <h3 id="display-unflushed-entries">Display unflushed entries</h3>
+    <p>
+      <code>!unflushed</code>
+    </p>
+    <p>This command shows the dialog with entries that failed flushing to JIRA</p>
+    <h3 id="display-config-screen">Display config screen</h3>
+    <p>
+      <code>!config</code>
+    </p>
+    <p>This command shows the settings screen</p>
+    <h2 id="fail-tolerance">Fail tolerance</h2>
+    <p>You will notice in the time table that all the entries have a small green square at the bottom of the entry's rectangle. This square denotes that the entry has been successfully propagated to JIRA.</p>
+    <p>There are cases where due to JIRA maintainance or network failure the logger won't be able to send the entry to JIRA (or sending fails).</p>
+    <p>To resolve that issue, the logger maintains logged entries locally with the status of the flush success. If the entry wasn't flushed, then in the time table you will see a small red rectangle instead of a green one.
+The logger will attempt to flush those pending entries every time you try to log something. Alternatively, if there is JIRA inaccessibility detected and some entries are not flushed, you can right click on the logger
+icon in the tray area, and will see "Retry" menu item. You can press it for logger to retry the flushing manually.</p>
+    <p>You can also see what entries have failed to be flushed and can attempt to individually flush them.</p>
+    <p>To do that open the logger by pressing Ctrl+Alt+Space and input
+<code>!unflushed</code></p>
+    <p>This will display a dialog with the list of failed entries. You can select what date you want to see failed entries for (default is today). You can then select entries of interest and press "Flush selected".
+The dialog will then update depending on the result of flushing.</p>
+  </body>
+</html>
