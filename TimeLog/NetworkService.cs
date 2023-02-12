@@ -117,6 +117,7 @@ namespace TimeLog
                     }
                 }
                 resetEvent.WaitOne();
+                resetEvent.Reset();
             }
         }
 

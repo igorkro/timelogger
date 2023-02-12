@@ -18,6 +18,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http.Headers;
 using System.Threading;
 using TimeLog.Models.Events;
 
@@ -178,6 +179,7 @@ namespace TimeLog.Utils
                 doFlushing();
 
                 mre.Wait(3000);
+                mre.Reset();
             }
 
             doFlushing();
